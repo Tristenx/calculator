@@ -1,17 +1,17 @@
 def addition(num1, num2):
-    pass
+    print("add")
 
 
 def subtraction(num1, num2):
-    pass
+    print("subtract")
 
 
 def multiplication(num1, num2):
-    pass
+    print("times")
 
 
 def division(num1, num2):
-    pass
+    print("divide")
 
 
 num1 = input("Enter a number: ")
