@@ -9,7 +9,8 @@ def subtraction(num1, num2):
 
 
 def multiplication(num1, num2):
-    return "times"
+    result = float(num1) * float(num2)
+    return result
 
 
 def division(num1, num2):
