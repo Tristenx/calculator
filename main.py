@@ -14,7 +14,8 @@ def multiplication(num1, num2):
 
 
 def division(num1, num2):
-    return "divide"
+    result = float(num1) / float(num2)
+    return result
 
 
 num1 = input("Enter a number: ")
