@@ -62,81 +62,67 @@ display_num = ""
 
 def zero_func():
     global display_num
-    display_num = str(display_num)
     display_num += "0"
-    display_num = int(display_num)
     canvas.itemconfig(display, text=display_num)
 
 
 def one_func():
     global display_num
-    display_num = str(display_num)
     display_num += "1"
-    display_num = int(display_num)
     canvas.itemconfig(display, text=display_num)
 
 
 def two_func():
     global display_num
-    display_num = str(display_num)
     display_num += "2"
-    display_num = int(display_num)
     canvas.itemconfig(display, text=display_num)
 
 
 def three_func():
     global display_num
-    display_num = str(display_num)
     display_num += "3"
-    display_num = int(display_num)
     canvas.itemconfig(display, text=display_num)
 
 
 def four_func():
     global display_num
-    display_num = str(display_num)
     display_num += "4"
-    display_num = int(display_num)
     canvas.itemconfig(display, text=display_num)
 
 
 def five_func():
     global display_num
-    display_num = str(display_num)
     display_num += "5"
-    display_num = int(display_num)
     canvas.itemconfig(display, text=display_num)
 
 
 def six_func():
     global display_num
-    display_num = str(display_num)
     display_num += "6"
-    display_num = int(display_num)
     canvas.itemconfig(display, text=display_num)
 
 
 def seven_func():
     global display_num
-    display_num = str(display_num)
     display_num += "7"
-    display_num = int(display_num)
     canvas.itemconfig(display, text=display_num)
 
 
 def eight_func():
     global display_num
-    display_num = str(display_num)
     display_num += "8"
-    display_num = int(display_num)
     canvas.itemconfig(display, text=display_num)
 
 
 def nine_func():
     global display_num
-    display_num = str(display_num)
     display_num += "9"
-    display_num = int(display_num)
+    canvas.itemconfig(display, text=display_num)
+
+
+def decimal_func():
+    global display_num
+    display_num += "."
     canvas.itemconfig(display, text=display_num)
 
 
@@ -202,7 +188,7 @@ zero_button = Button(text=0, font=("San Fransisco", 20),
 zero_button.grid(row=4, column=0)
 
 decimal_button = Button(text=".", font=("San Fransisco", 20),
-                        relief="groove", width=3, height=1)
+                        relief="groove", width=3, height=1, command=decimal_func)
 decimal_button.grid(row=4, column=1)
 
 equals_button = Button(text="=", font=("San Fransisco", 20),
