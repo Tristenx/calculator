@@ -49,4 +49,4 @@ while calc_on:
     else:
         print("Invalid operation")
 
-    print(current_num)
+print(current_num)
