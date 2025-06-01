@@ -22,31 +22,31 @@ def check_if_number(input):
         return False
 
 
-def perform_operation(user_input, num1, num2):
-    if user_input == "+":
-        print(addition(num1, num2))
-    elif user_input == "-":
-        print(subtraction(num1, num2))
-    elif user_input == "x":
-        print(multiplication(num1, num2))
-    elif user_input == "/":
-        print(division(num1, num2))
+def get_new_num():
+    new_num = input("Enter a number: ")
+    while not check_if_number(new_num):
+        print("Invalid input")
+        new_num = input("Enter a number: ")
+    new_num = float(new_num)
+    return new_num
+
+
+current_num = get_new_num()
+
+calc_on = True
+while calc_on:
+    operation = input("Enter an operation (+,-,x,/,=): ")
+    if operation == "=":
+        calc_on = False
+    elif operation == "+":
+        current_num = addition(current_num, get_new_num())
+    elif operation == "-":
+        current_num = subtraction(current_num, get_new_num())
+    elif operation == "x":
+        current_num = multiplication(current_num, get_new_num())
+    elif operation == "/":
+        current_num = division(current_num, get_new_num())
     else:
         print("Invalid operation")
 
-
-num1 = input("Enter a number: ")
-while not check_if_number(num1):
-    print("Invalid input")
-    num1 = input("Enter a number: ")
-num1 = float(num1)
-
-operation = input("Enter an operation (+,-,x,/): ")
-
-num2 = input("Enter a second number: ")
-while not check_if_number(num2):
-    print("Invalid input")
-    num2 = input("Enter a second number: ")
-num2 = float(num2)
-
-perform_operation(operation, num1, num2)
+    print(current_num)
