@@ -56,8 +56,23 @@ print(current_num)
 
 # ----------------------------------------------------------------------------------------------------------------#
 
-current_ans = 0
 display_num = ""
+
+def read_display():
+    global display_num
+    op = ""
+    number = ""
+    for char in display_num:
+        if char == "/":
+            pass
+        elif char == "x":
+            pass
+        elif char == "-":
+            pass
+        elif char == "+":
+            pass
+        else:
+            number += char
 
 
 def zero_func():
@@ -211,7 +226,7 @@ decimal_button = Button(text=".", font=("San Fransisco", 20),
 decimal_button.grid(row=4, column=1)
 
 equals_button = Button(text="=", font=("San Fransisco", 20),
-                       relief="groove", width=3, height=1)
+                       relief="groove", width=3, height=1, command=read_display)
 equals_button.grid(row=4, column=2)
 
 plus_button = Button(text="+", font=("San Fransisco", 20),
