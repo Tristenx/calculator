@@ -125,6 +125,25 @@ def decimal_func():
     display_num += "."
     canvas.itemconfig(display, text=display_num)
 
+def divide_func():
+    global display_num
+    display_num += "/"
+    canvas.itemconfig(display, text=display_num)
+
+def times_func():
+    global display_num
+    display_num += "x"
+    canvas.itemconfig(display, text=display_num)
+
+def minus_func():
+    global display_num
+    display_num += "-"
+    canvas.itemconfig(display, text=display_num)
+
+def plus_func():
+    global display_num
+    display_num += "+"
+    canvas.itemconfig(display, text=display_num)
 
 window = Tk()
 window.title("Calculator")
@@ -147,8 +166,8 @@ nine_button = Button(text=9, font=("San Fransisco", 20),
                      relief="groove", width=3, height=1, command=nine_func)
 nine_button.grid(row=1, column=2)
 
-divide_button = Button(text="÷", font=("San Fransisco", 20),
-                       relief="groove", width=3, height=1)
+divide_button = Button(text="/", font=("San Fransisco", 20),
+                       relief="groove", width=3, height=1, command=divide_func)
 divide_button.grid(row=1, column=3)
 
 four_button = Button(text=4, font=("San Fransisco", 20),
@@ -164,7 +183,7 @@ six_button = Button(text=6, font=("San Fransisco", 20),
 six_button.grid(row=2, column=2)
 
 times_button = Button(text="x", font=("San Fransisco", 20),
-                      relief="groove", width=3, height=1)
+                      relief="groove", width=3, height=1, command=times_func)
 times_button.grid(row=2, column=3)
 
 one_button = Button(text=1, font=("San Fransisco", 20),
@@ -180,7 +199,7 @@ three_button = Button(text=3, font=("San Fransisco", 20),
 three_button.grid(row=3, column=2)
 
 minus_button = Button(text="-", font=("San Fransisco", 20),
-                      relief="groove", width=3, height=1)
+                      relief="groove", width=3, height=1, command=minus_func)
 minus_button.grid(row=3, column=3)
 
 zero_button = Button(text=0, font=("San Fransisco", 20),
@@ -196,7 +215,7 @@ equals_button = Button(text="=", font=("San Fransisco", 20),
 equals_button.grid(row=4, column=2)
 
 plus_button = Button(text="+", font=("San Fransisco", 20),
-                     relief="groove", width=3, height=1)
+                     relief="groove", width=3, height=1, command=plus_func)
 plus_button.grid(row=4, column=3)
 
 window.mainloop()
