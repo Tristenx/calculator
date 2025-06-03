@@ -33,37 +33,39 @@ def get_new_num():
     new_num = float(new_num)
     return new_num
 
-
-# current_num = get_new_num()
-#
-# calc_on = True
-# while calc_on:
-#     operation = input("Enter an operation (+,-,x,/,=): ")
-#     if operation == "=":
-#         calc_on = False
-#     elif operation == "+":
-#         current_num = addition(current_num, get_new_num())
-#     elif operation == "-":
-#         current_num = subtraction(current_num, get_new_num())
-#     elif operation == "x":
-#         current_num = multiplication(current_num, get_new_num())
-#     elif operation == "/":
-#         current_num = division(current_num, get_new_num())
-#     else:
-#         print("Invalid operation")
-#
-# print(current_num)
+def calculate(num_list, op_list):
+    answer = 0
+    for op in op_list:
+        if op == "+":
+            if op_list.index(op) == 0:
+                answer += addition(num_list[0], num_list[1])
+                num_list.remove(num_list[0])
+                num_list.remove(num_list[0])
+        elif op == "-":
+            if op_list.index(op) == 0:
+                answer += subtraction(num_list[0], num_list[1])
+                num_list.remove(num_list[0])
+                num_list.remove(num_list[0])
+        elif op == "/":
+            if op_list.index(op) == 0:
+                answer += division(num_list[0], num_list[1])
+                num_list.remove(num_list[0])
+                num_list.remove(num_list[0])
+        elif op == "x":
+            if op_list.index(op) == 0:
+                answer += multiplication(num_list[0], num_list[1])
+                num_list.remove(num_list[0])
+                num_list.remove(num_list[0])
+    print(answer)
 
 # ----------------------------------------------------------------------------------------------------------------#
 
 display_num = ""
-number_list = []
-operations_list = []
 
 def read_display():
     global display_num
-    global number_list
-    global operations_list
+    number_list = []
+    operations_list = []
     number = ""
     for char in display_num:
         if char == "/":
@@ -88,9 +90,10 @@ def read_display():
             number = ""
         else:
             number += char
-    number_list.append(number)
+    number_list.append(float(number))
     print(number_list)
     print(operations_list)
+    calculate(number_list, operations_list)
 
 def zero_func():
     global display_num
@@ -182,6 +185,11 @@ def plus_func():
     canvas.itemconfig(display, text=display_num)
     decimal_button["state"] = "normal"
 
+def clear_display():
+    global display_num
+    display_num = ""
+    canvas.itemconfig(display, text=display_num)
+
 window = Tk()
 window.title("Calculator")
 window.config(padx=20, pady=20)
@@ -254,5 +262,9 @@ equals_button.grid(row=4, column=2)
 plus_button = Button(text="+", font=("San Fransisco", 20),
                      relief="groove", width=3, height=1, command=plus_func)
 plus_button.grid(row=4, column=3)
+
+plus_button = Button(text="Reset", font=("San Fransisco", 20),
+                     relief="groove", command=clear_display)
+plus_button.grid(row=5, column=0, columnspan=4)
 
 window.mainloop()
