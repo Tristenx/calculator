@@ -60,7 +60,6 @@ display_num = ""
 
 def read_display():
     global display_num
-    op = ""
     number = ""
     for char in display_num:
         if char == "/":
@@ -139,26 +138,31 @@ def decimal_func():
     global display_num
     display_num += "."
     canvas.itemconfig(display, text=display_num)
+    decimal_button["state"] = "disabled"
 
 def divide_func():
     global display_num
     display_num += "/"
     canvas.itemconfig(display, text=display_num)
+    decimal_button["state"] = "normal"
 
 def times_func():
     global display_num
     display_num += "x"
     canvas.itemconfig(display, text=display_num)
+    decimal_button["state"] = "normal"
 
 def minus_func():
     global display_num
     display_num += "-"
     canvas.itemconfig(display, text=display_num)
+    decimal_button["state"] = "normal"
 
 def plus_func():
     global display_num
     display_num += "+"
     canvas.itemconfig(display, text=display_num)
+    decimal_button["state"] = "normal"
 
 window = Tk()
 window.title("Calculator")
