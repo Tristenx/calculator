@@ -34,45 +34,63 @@ def get_new_num():
     return new_num
 
 
-current_num = get_new_num()
-
-calc_on = True
-while calc_on:
-    operation = input("Enter an operation (+,-,x,/,=): ")
-    if operation == "=":
-        calc_on = False
-    elif operation == "+":
-        current_num = addition(current_num, get_new_num())
-    elif operation == "-":
-        current_num = subtraction(current_num, get_new_num())
-    elif operation == "x":
-        current_num = multiplication(current_num, get_new_num())
-    elif operation == "/":
-        current_num = division(current_num, get_new_num())
-    else:
-        print("Invalid operation")
-
-print(current_num)
+# current_num = get_new_num()
+#
+# calc_on = True
+# while calc_on:
+#     operation = input("Enter an operation (+,-,x,/,=): ")
+#     if operation == "=":
+#         calc_on = False
+#     elif operation == "+":
+#         current_num = addition(current_num, get_new_num())
+#     elif operation == "-":
+#         current_num = subtraction(current_num, get_new_num())
+#     elif operation == "x":
+#         current_num = multiplication(current_num, get_new_num())
+#     elif operation == "/":
+#         current_num = division(current_num, get_new_num())
+#     else:
+#         print("Invalid operation")
+#
+# print(current_num)
 
 # ----------------------------------------------------------------------------------------------------------------#
 
 display_num = ""
+number_list = []
+operations_list = []
 
 def read_display():
     global display_num
+    global number_list
+    global operations_list
     number = ""
     for char in display_num:
         if char == "/":
-            pass
+            number = float(number)
+            number_list.append(number)
+            operations_list.append("/")
+            number = ""
         elif char == "x":
-            pass
+            number = float(number)
+            number_list.append(number)
+            operations_list.append("x")
+            number = ""
         elif char == "-":
-            pass
+            number = float(number)
+            number_list.append(number)
+            operations_list.append("-")
+            number = ""
         elif char == "+":
-            pass
+            number = float(number)
+            number_list.append(number)
+            operations_list.append("+")
+            number = ""
         else:
             number += char
-
+    number_list.append(number)
+    print(number_list)
+    print(operations_list)
 
 def zero_func():
     global display_num
