@@ -24,6 +24,7 @@ def check_if_number(input):
     except ValueError:
         return False
 
+display_num = ""
 
 def get_new_num():
     new_num = input("Enter a number: ")
@@ -34,33 +35,37 @@ def get_new_num():
     return new_num
 
 def calculate(num_list, op_list):
+    global display_num
     answer = 0
     for op in op_list:
         if op == "+":
             if op_list.index(op) == 0:
                 answer += addition(num_list[0], num_list[1])
                 num_list.remove(num_list[0])
-                num_list.remove(num_list[0])
+            else:
+                answer += addition(answer, num_list[0])
         elif op == "-":
             if op_list.index(op) == 0:
                 answer += subtraction(num_list[0], num_list[1])
                 num_list.remove(num_list[0])
-                num_list.remove(num_list[0])
+            else:
+                answer += subtraction(answer, num_list[0])
         elif op == "/":
             if op_list.index(op) == 0:
                 answer += division(num_list[0], num_list[1])
                 num_list.remove(num_list[0])
-                num_list.remove(num_list[0])
+            else:
+                answer += division(answer, num_list[0])
         elif op == "x":
             if op_list.index(op) == 0:
                 answer += multiplication(num_list[0], num_list[1])
                 num_list.remove(num_list[0])
-                num_list.remove(num_list[0])
+            else:
+                answer += multiplication(answer, num_list[0])
+        num_list.remove(num_list[0])
     print(answer)
-
-# ----------------------------------------------------------------------------------------------------------------#
-
-display_num = ""
+    display_num = answer
+    canvas.itemconfig(display, text=display_num)
 
 def read_display():
     global display_num
