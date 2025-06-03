@@ -64,7 +64,7 @@ def calculate(num_list, op_list):
                 answer = multiplication(answer, num_list[0])
         num_list.pop(0)
     print(answer)
-    display_num = answer
+    display_num = str(answer)
     canvas.itemconfig(display, text=display_num)
 
 def read_display():
