@@ -1,5 +1,16 @@
 from tkinter import *
 
+def disable_operations():
+    divide_button["state"] = "disabled"
+    times_button["state"] = "disabled"
+    plus_button["state"] = "disabled"
+    minus_button["state"] = "disabled"
+
+def enable_operations():
+    divide_button["state"] = "normal"
+    times_button["state"] = "normal"
+    plus_button["state"] = "normal"
+    minus_button["state"] = "normal"
 
 def addition(num1, num2):
     return num1 + num2
@@ -102,60 +113,70 @@ def read_display():
 
 def zero_func():
     global display_num
+    enable_operations()
     display_num += "0"
     canvas.itemconfig(display, text=display_num)
 
 
 def one_func():
     global display_num
+    enable_operations()
     display_num += "1"
     canvas.itemconfig(display, text=display_num)
 
 
 def two_func():
     global display_num
+    enable_operations()
     display_num += "2"
     canvas.itemconfig(display, text=display_num)
 
 
 def three_func():
     global display_num
+    enable_operations()
     display_num += "3"
     canvas.itemconfig(display, text=display_num)
 
 
 def four_func():
     global display_num
+    enable_operations()
     display_num += "4"
     canvas.itemconfig(display, text=display_num)
 
 
 def five_func():
     global display_num
+    enable_operations()
     display_num += "5"
     canvas.itemconfig(display, text=display_num)
 
 
 def six_func():
     global display_num
+    enable_operations()
     display_num += "6"
     canvas.itemconfig(display, text=display_num)
 
 
 def seven_func():
     global display_num
+    enable_operations()
     display_num += "7"
     canvas.itemconfig(display, text=display_num)
 
 
 def eight_func():
     global display_num
+    enable_operations()
     display_num += "8"
     canvas.itemconfig(display, text=display_num)
 
 
 def nine_func():
     global display_num
+    enable_operations()
     display_num += "9"
     canvas.itemconfig(display, text=display_num)
 
@@ -168,24 +189,28 @@ def decimal_func():
 
 def divide_func():
     global display_num
+    disable_operations()
     display_num += "/"
     canvas.itemconfig(display, text=display_num)
     decimal_button["state"] = "normal"
 
 def times_func():
     global display_num
+    disable_operations()
     display_num += "x"
     canvas.itemconfig(display, text=display_num)
     decimal_button["state"] = "normal"
 
 def minus_func():
     global display_num
+    disable_operations()
     display_num += "-"
     canvas.itemconfig(display, text=display_num)
     decimal_button["state"] = "normal"
 
 def plus_func():
     global display_num
+    disable_operations()
     display_num += "+"
     canvas.itemconfig(display, text=display_num)
     decimal_button["state"] = "normal"
@@ -268,8 +293,10 @@ plus_button = Button(text="+", font=("San Fransisco", 20),
                      relief="groove", width=3, height=1, command=plus_func)
 plus_button.grid(row=4, column=3)
 
-plus_button = Button(text="Reset", font=("San Fransisco", 20),
+reset_button = Button(text="Reset", font=("San Fransisco", 20),
                      relief="groove", command=clear_display)
-plus_button.grid(row=5, column=0, columnspan=4)
+reset_button.grid(row=5, column=0, columnspan=4)
+
+disable_operations()
 
 window.mainloop()
