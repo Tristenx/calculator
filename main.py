@@ -1,4 +1,6 @@
 from tkinter import *
+# this is a test
+
 
 def disable_operations():
     divide_button["state"] = "disabled"
@@ -6,11 +8,13 @@ def disable_operations():
     plus_button["state"] = "disabled"
     minus_button["state"] = "disabled"
 
+
 def enable_operations():
     divide_button["state"] = "normal"
     times_button["state"] = "normal"
     plus_button["state"] = "normal"
     minus_button["state"] = "normal"
+
 
 def addition(num1, num2):
     return num1 + num2
@@ -35,7 +39,9 @@ def check_if_number(input):
     except ValueError:
         return False
 
+
 display_num = ""
+
 
 def get_new_num():
     new_num = input("Enter a number: ")
@@ -44,6 +50,7 @@ def get_new_num():
         new_num = input("Enter a number: ")
     new_num = float(new_num)
     return new_num
+
 
 def calculate(num_list, op_list):
     global display_num
@@ -78,6 +85,7 @@ def calculate(num_list, op_list):
     display_num = str(answer)
     canvas.itemconfig(display, text=display_num)
 
+
 def read_display():
     global display_num
     number_list = []
@@ -110,6 +118,7 @@ def read_display():
     print(number_list)
     print(operations_list)
     calculate(number_list, operations_list)
+
 
 def zero_func():
     global display_num
@@ -187,12 +196,14 @@ def decimal_func():
     canvas.itemconfig(display, text=display_num)
     decimal_button["state"] = "disabled"
 
+
 def divide_func():
     global display_num
     disable_operations()
     display_num += "/"
     canvas.itemconfig(display, text=display_num)
     decimal_button["state"] = "normal"
+
 
 def times_func():
     global display_num
@@ -201,12 +212,14 @@ def times_func():
     canvas.itemconfig(display, text=display_num)
     decimal_button["state"] = "normal"
 
+
 def minus_func():
     global display_num
     disable_operations()
     display_num += "-"
     canvas.itemconfig(display, text=display_num)
     decimal_button["state"] = "normal"
+
 
 def plus_func():
     global display_num
@@ -215,10 +228,12 @@ def plus_func():
     canvas.itemconfig(display, text=display_num)
     decimal_button["state"] = "normal"
 
+
 def clear_display():
     global display_num
     display_num = ""
     canvas.itemconfig(display, text=display_num)
+
 
 window = Tk()
 window.title("Calculator")
@@ -294,7 +309,7 @@ plus_button = Button(text="+", font=("San Fransisco", 20),
 plus_button.grid(row=4, column=3)
 
 reset_button = Button(text="Reset", font=("San Fransisco", 20),
-                     relief="groove", command=clear_display)
+                      relief="groove", command=clear_display)
 reset_button.grid(row=5, column=0, columnspan=4)
 
 disable_operations()
